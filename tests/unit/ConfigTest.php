@@ -7,11 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 class ConfigTest extends TestCase
 {
-    /*public function testGetContentConfigFileMethodReturnArray()
+    public function testGetContentConfigFileMethodReturnArray()
     {
         $contentConfigFile = Config::getContentConfigFile('database');
         $this->assertIsArray($contentConfigFile);
-    }*/
+    }
 
     /*
     public function testGetConfigMethodReturnArray()
