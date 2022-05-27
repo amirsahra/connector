@@ -3,16 +3,19 @@
 namespace App\helpers;
 
 use App\contracts\ConfigurableInterface;
-use PhpParser\Node\Expr\Throw_;
+use App\exceptions\ConfigFileNotFoundException;
 
 class Config implements ConfigurableInterface
 {
-    public static function getContentConfigFile(string $fileName)
+    /**
+     * @throws ConfigFileNotFoundException
+     */
+    public static function getContentConfigFile(string $fileName) : array
     {
-        /*$path = realpath(__DIR__ . "/../configs/" . "{$fileName}" . ".php");
+        $path = realpath(__DIR__ . "/../configs/" . "{$fileName}" . ".php");
         if ($path)
-            throw new ConfigFileNotFoundException();
-        return require_once $path;*/
+            return require_once $path;
+        throw new ConfigFileNotFoundException();
     }
 
     public static function getConfig(string $fileName, string $key = null)

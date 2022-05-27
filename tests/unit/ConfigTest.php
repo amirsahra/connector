@@ -7,6 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 class ConfigTest extends TestCase
 {
+    /**
+     * @throws \App\exceptions\ConfigFileNotFoundException
+     */
     public function testGetContentConfigFileMethodReturnArray()
     {
         $contentConfigFile = Config::getContentConfigFile('database');

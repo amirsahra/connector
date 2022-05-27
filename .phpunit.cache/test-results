@@ -1,1 +1,1 @@
-{"version":1,"defects":{"Tests\\unit\\ConfigTest::testGetContentConfigFileMethodReturnArray":4},"times":{"Tests\\unit\\ConfigTest::testGetContentConfigFileMethodReturnArray":0.007}}
+{"version":1,"defects":{"Tests\\unit\\ConfigTest::testGetContentConfigFileMethodReturnArray":5},"times":{"Tests\\unit\\ConfigTest::testGetContentConfigFileMethodReturnArray":0.007}}
