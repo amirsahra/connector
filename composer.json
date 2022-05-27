@@ -1,0 +1,25 @@
+{
+    "name": "amirsahra/connector",
+    "description": "Simple and lightweight ORM for php",
+    "type": "library",
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Amirsahra\\Connector\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "amirsahra",
+            "email": "amirhosein.sahra@gmail.com"
+        }
+    ]
+}
