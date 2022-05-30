@@ -2,7 +2,28 @@
 
 namespace Tests\unit\helpers\config;
 
-class DataValidationTest extends \PHPUnit\Framework\TestCase
-{
+use App\helpers\Config;
+use PHPUnit\Framework\TestCase;
 
+class DataValidationTest extends TestCase
+{
+    /**
+     * @throws \App\exceptions\ConfigFileNotFoundException
+     */
+    public function testGetContentConfigFileMethodReturnValidKey()
+    {
+        $result = array_keys(Config::getContentConfigFile('database'));
+        $validData = ['connections', 'sqlite', 'mysql'];
+        $this->assertEquals($result, $validData);
+    }
+
+    /*public function testGetConfigMethodReturnValidData()
+    {
+
+    }
+
+    public function testReceivedGetConfigMethodHaveRequiredKey()
+    {
+
+    }*/
 }
