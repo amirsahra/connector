@@ -14,7 +14,7 @@ class Config implements ConfigurableInterface
     {
         $path = realpath(__DIR__ . "/../configs/" . "{$fileName}" . ".php");
         if ($path)
-            return require_once $path;
+            return require $path;
         throw new ConfigFileNotFoundException();
     }
 
