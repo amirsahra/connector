@@ -15,8 +15,9 @@ class ReturnTypeTest extends \PHPUnit\Framework\TestCase
         $this->assertIsArray($contentConfigFile);
     }
 
-   /* public function testGetConfigMethodReturnArray()
+    public function testGetConfigMethodReturnArray()
     {
-
-    }*/
+        $config = Config::getConfig('database', 'mysql');
+        $this->assertIsArray($config);
+    }
 }
