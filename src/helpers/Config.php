@@ -19,31 +19,28 @@ class Config implements ConfigurableInterface
         throw new ConfigFileNotFoundException();
     }
 
+    /**
+     * @throws ConfigFileNotFoundException
+     * @throws ConfigFileKeyIsNotValidException
+     */
     public static function getConfig(string $fileName, string $key = null)
     {
-        try {
-            $contentConfigFile = self::getContentConfigFile($fileName);
-            if (is_null($key)) return $contentConfigFile;
-            if (self::checkKeyInConfigFile($fileName,$key)){
-                return $contentConfigFile[$key];
-            }
-        } catch (ConfigFileNotFoundException | ConfigFileKeyIsNotValidException $e) {
-
+        $contentConfigFile = self::getContentConfigFile($fileName);
+        if (is_null($key)) return $contentConfigFile;
+        if (self::checkKeyInConfigFile($fileName,$key)){
+            return $contentConfigFile[$key];
         }
     }
 
     /**
      * @throws ConfigFileKeyIsNotValidException
+     * @throws ConfigFileNotFoundException
      */
     private static function checkKeyInConfigFile(string $fileName, string $key): bool
     {
-        try {
-            $contentConfigFile = self::getContentConfigFile($fileName);
-            if (!array_key_exists($key, $contentConfigFile))
-                throw new ConfigFileKeyIsNotValidException();
-            return true;
-        } catch (ConfigFileNotFoundException $e) {
-            return false;
-        }
+        $contentConfigFile = self::getContentConfigFile($fileName);
+        if (!array_key_exists($key, $contentConfigFile))
+            throw new ConfigFileKeyIsNotValidException();
+        return true;
     }
 }
