@@ -17,13 +17,16 @@ class DataValidationTest extends TestCase
         $this->assertEquals($result, $validData);
     }
 
-    /*public function testGetConfigMethodReturnValidData()
+    /**
+     * @throws \App\exceptions\ConfigFileKeyIsNotValidException
+     * @throws \App\exceptions\ConfigFileNotFoundException
+     */
+    public function testGetConfigMethodReturnValidKey()
     {
-
+        $result = array_keys(Config::getConfig('database', 'mysql'));
+        $validData = ['driver', 'host', 'port', 'database', 'username', 'password', 'charset',
+            'collation', 'prefix', 'prefix_indexes', 'extension'];
+        $this->assertEquals($result, $validData);
     }
 
-    public function testReceivedGetConfigMethodHaveRequiredKey()
-    {
-
-    }*/
 }
