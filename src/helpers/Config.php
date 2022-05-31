@@ -13,7 +13,7 @@ class Config implements ConfigurableInterface
      */
     public static function getContentConfigFile(string $fileName): array
     {
-        $path = realpath(__DIR__ . "/../configs/" . "{$fileName}" . ".php");
+        $path = realpath(__DIR__ . "/../configs/" . "$fileName" . ".php");
         if ($path)
             return require $path;
         throw new ConfigFileNotFoundException();
@@ -27,9 +27,9 @@ class Config implements ConfigurableInterface
     {
         $contentConfigFile = self::getContentConfigFile($fileName);
         if (is_null($key)) return $contentConfigFile;
-        if (self::checkKeyInConfigFile($fileName,$key)){
+        if (self::checkKeyInConfigFile($fileName, $key))
             return $contentConfigFile[$key];
-        }
+        return [];
     }
 
     /**

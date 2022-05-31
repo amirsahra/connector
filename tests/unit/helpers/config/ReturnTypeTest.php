@@ -3,8 +3,9 @@
 namespace Tests\unit\helpers\config;
 
 use App\helpers\Config;
+use PHPUnit\Framework\TestCase;
 
-class ReturnTypeTest extends \PHPUnit\Framework\TestCase
+class ReturnTypeTest extends TestCase
 {
     /**
      * @throws \App\exceptions\ConfigFileNotFoundException
@@ -15,6 +16,10 @@ class ReturnTypeTest extends \PHPUnit\Framework\TestCase
         $this->assertIsArray($contentConfigFile);
     }
 
+    /**
+     * @throws \App\exceptions\ConfigFileKeyIsNotValidException
+     * @throws \App\exceptions\ConfigFileNotFoundException
+     */
     public function testGetConfigMethodReturnArray()
     {
         $config = Config::getConfig('database', 'mysql');
